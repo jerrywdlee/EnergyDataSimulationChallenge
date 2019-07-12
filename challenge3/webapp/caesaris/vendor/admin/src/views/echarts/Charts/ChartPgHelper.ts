@@ -8,7 +8,7 @@ function parseHistogramData(rawData: string) {
   return ecStat.histogram(dataList, 'squareRoot')
 }
 
-function createHistogramOptions(dataBins: ecStat.HistogramBins) {
+function createHistogramOptions(dataBins: ecStat.HistogramBins): echarts.EChartOption {
   // console.log(dataBins);
   return {
     title: {
@@ -39,7 +39,7 @@ function createHistogramOptions(dataBins: ecStat.HistogramBins) {
     series: [{
       name: 'height',
       type: 'bar',
-      barWidth: '99.3%',
+      // barWidth: '99.3%',
       label: {
         normal: {
           show: true,
@@ -55,5 +55,5 @@ function createHistogramOptions(dataBins: ecStat.HistogramBins) {
 }
 
 export const histogramOptions = (rawData: string) => {
-  return createHistogramOptions(parseHistogramData(rawData)) as echarts.EChartOption
+  return createHistogramOptions(parseHistogramData(rawData))
 }
